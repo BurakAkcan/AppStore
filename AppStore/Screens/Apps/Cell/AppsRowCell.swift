@@ -11,7 +11,7 @@ class AppsRowCell: UICollectionViewCell {
     
    static let identifier = String(describing: AppsRowCell.self )
     
-    let iconImageView: UIImageView = {
+    private let iconImageView: UIImageView = {
         let imageView = UIImageView()
          imageView.backgroundColor = .blue
          imageView.widthAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
@@ -21,8 +21,8 @@ class AppsRowCell: UICollectionViewCell {
          return imageView
      }()
     
-    let nameLabel: UILabel = UILabel(text: "App name", font: .systemFont(ofSize: 16, weight: .medium))
-    let companyLabel: UILabel = UILabel(text: "company name", font: .systemFont(ofSize: 8, weight: .light))
+    private let nameLabel: UILabel = UILabel(text: "App name", font: .systemFont(ofSize: 16, weight: .medium))
+    private let companyLabel: UILabel = UILabel(text: "company name", font: .systemFont(ofSize: 8, weight: .light))
     private let  getButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Get", for: .normal)

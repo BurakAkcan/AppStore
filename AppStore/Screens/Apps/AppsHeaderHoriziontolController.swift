@@ -18,18 +18,18 @@ class AppsHeaderHoriziontolController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "1", for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppHeaderCell.identifier, for: indexPath) as? AppHeaderCell else {
+          return  UICollectionViewCell()
+        }
         return cell
     }
 }
 
 //MARK: - Extensions
-#warning("cell id yazılcak")
 private extension AppsHeaderHoriziontolController {
     func configure() {
         collectionView.backgroundColor = .yellow
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "1")
+        collectionView.register(AppHeaderCell.self, forCellWithReuseIdentifier: AppHeaderCell.identifier)
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
@@ -38,9 +38,14 @@ private extension AppsHeaderHoriziontolController {
 
 extension AppsHeaderHoriziontolController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: .dWidth, height: .dheight)
+        let height = (CGFloat.dheight - 2 * 12 - 2 * 10) / 3
+        return .init(width: .dWidth, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 40, left: 10, bottom: 10, right: 10)
+        return .init(top: 12, left: 16, bottom: 12, right: 16)
     }
 }
