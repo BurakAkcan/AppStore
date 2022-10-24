@@ -24,10 +24,6 @@ class AppHeaderCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green
-        
-        contentLabel.textColor = .white
-        companyLabel.textColor = .white
         configureCell()
     }
     
@@ -38,15 +34,13 @@ class AppHeaderCell: UICollectionViewCell {
     
 }
 
-
 private extension AppHeaderCell {
     func configureCell() {
-        companyLabel.translatesAutoresizingMaskIntoConstraints = false
-        let stackView = VerticalStackView(arrangedSubviews: [companyLabel,headerImageView])
+        companyLabel.textColor = .systemBlue
+        contentLabel.numberOfLines = 2
+        let stackView = VerticalStackView(arrangedSubviews: [companyLabel, contentLabel ,headerImageView],spacing: 6)
         addSubview(stackView)
-        stackView.spacing = 8
         stackView.distribution = .fill
-        
-        stackView.fillSuperview()
+        stackView.fillSuperview(padding: .init(top: 16, left: 0, bottom: 0, right: 0))
     }
 }

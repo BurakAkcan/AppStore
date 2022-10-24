@@ -25,5 +25,5 @@ protocol API {
     var scheme: HttpScheme { get }
     var host: String { get }
     var path: String { get }
-    var parameters: [URLQueryItem] { get }
+    var parameters: [URLQueryItem]? { get }
 }

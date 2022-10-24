@@ -49,6 +49,9 @@ class SearchVC: BaseCollectionViewController {
         enterSearchLabel.isHidden = searchViewModel.appResults.count != 0
         return searchViewModel.appResults.count
     }
+    deinit {
+        print("deinit")
+    }
     
     
     func setUpSearchBar() {
@@ -81,8 +84,6 @@ extension SearchVC: SearchVCInterface {
 }
 extension SearchVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //introduce some delay before performing
-        //Throttling the search
         searchViewModel.term(searchText)
     }
 }

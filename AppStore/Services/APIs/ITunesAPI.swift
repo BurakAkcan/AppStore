@@ -43,7 +43,7 @@ enum ITunesAPI: API {
         
     }
     
-    var parameters: [URLQueryItem] {
+    var parameters: [URLQueryItem]? {
         
         switch self {
         case .iTune(let term):

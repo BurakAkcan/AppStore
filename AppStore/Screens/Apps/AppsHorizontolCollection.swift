@@ -9,6 +9,13 @@ import UIKit
 
 class AppsHorizontolCollection: BaseCollectionViewController {
     
+    var appGroup: FeedResponse? {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +31,19 @@ class AppsHorizontolCollection: BaseCollectionViewController {
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        if let appGroup = appGroup {
+            return appGroup.results.count
+        }else{
+            return 0
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath) as! AppsRowCell
+        if let appGroup = appGroup {
+            let item = appGroup.results[indexPath.item]
+            cell.setCell(item)
+        }
         
         return cell
     }

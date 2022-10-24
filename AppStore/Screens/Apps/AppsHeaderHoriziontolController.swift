@@ -8,6 +8,9 @@
 import UIKit
 
 class AppsHeaderHoriziontolController: BaseCollectionViewController {
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

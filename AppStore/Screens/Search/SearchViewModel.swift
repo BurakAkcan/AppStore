@@ -32,7 +32,7 @@ final class SearchViewModel: SearchViewModelInterface {
     }
     
     
-    func getApps() {
+   private func getApps() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
             NetworkManager.request(endpoint: ITunesAPI.iTune(term: self.term ?? "")) { [weak self] (result: Result<ItunesResponse, Error>) in

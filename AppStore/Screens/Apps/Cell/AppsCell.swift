@@ -13,7 +13,7 @@ class AppsCell: UICollectionViewCell {
     
     let titleLabel: UILabel = UILabel(text: "AppSection", font: .systemFont(ofSize: 28, weight: .semibold))
     
-    let horizontolController = AppsHorizontolCollection()
+    let horizontolCollection = AppsHorizontolCollection()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,12 +27,20 @@ class AppsCell: UICollectionViewCell {
     private func configureCell() {
         
         addSubview(titleLabel)
-        addSubview(horizontolController.view)
-        horizontolController.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        addSubview(horizontolCollection.view)
+        horizontolCollection.view.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,padding: .init(top: 0, left: 12, bottom: 0, right: 0))
         
     }
     
-    
+    func setCell(_ feed: FeedResponse? ) {
+        guard let feed = feed else {
+            return
+        }
+
+        titleLabel.text = feed.title
+        horizontolCollection.appGroup = feed
+        print(feed.results.count)
+    }
     
 }

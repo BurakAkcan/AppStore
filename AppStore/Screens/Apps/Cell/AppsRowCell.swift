@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AppsRowCell: UICollectionViewCell {
     
@@ -42,6 +43,12 @@ class AppsRowCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setCell(_ item: AppResult) {
+        nameLabel.text = item.name
+        companyLabel.text = item.artistName
+        iconImageView.sd_setImage(with: URL(string: item.artworkUrl100))
     }
     
     private func configureCell() {

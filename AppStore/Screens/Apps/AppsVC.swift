@@ -11,6 +11,7 @@ fileprivate let dumyId = "header"
 
 protocol AppsVCInterface: AnyObject {
     func configureVC()
+   func reloadCollectionView()
 }
 
 class AppsVC: BaseCollectionViewController {
@@ -30,6 +31,10 @@ class AppsVC: BaseCollectionViewController {
         appsViewModel.load()
 
     }
+    
+    deinit {
+        print("DEİNİTLİZE OLdu Burası jlafldnfsdnfhsdklfjsdlkjf")
+    }
     //1
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeader.identifier, for: indexPath)
@@ -48,11 +53,19 @@ class AppsVC: BaseCollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+         //appsViewModel.numberOfItemInSection()
+        1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsCell.identifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsCell.identifier, for: indexPath) as? AppsCell else {
+            return UICollectionViewCell()
+        }
+        if  let feed = appsViewModel.setAppGroup(){
+            cell.setCell(feed)
+           
+        }
+        
         
         return cell
     }
@@ -66,6 +79,12 @@ extension AppsVC: AppsVCInterface {
         title = appsViewModel.title
         configureCollectionRegister()
         
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 

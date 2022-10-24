@@ -24,7 +24,6 @@ class AppsHeader: UICollectionReusableView {
     }
     
     private func configure() {
-        appsHeaderHoriziontolController.view.backgroundColor = .orange
         addSubview(appsHeaderHoriziontolController.view)
         appsHeaderHoriziontolController.view.fillSuperview()
         
