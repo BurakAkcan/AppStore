@@ -10,11 +10,23 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+       
+        
         return true
+    }
+    
+    private func navigationSet(){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemGray5
+        UINavigationBar.appearance().standardAppearance = appearance;
+      //  UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
+       // appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+       // appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
     // MARK: UISceneSession Lifecycle
