@@ -40,7 +40,7 @@ class AppsCell: UICollectionViewCell {
 
         titleLabel.text = feed.title
         horizontolCollection.appGroup = feed
-        print(feed.results.count)
+       
     }
     
 }

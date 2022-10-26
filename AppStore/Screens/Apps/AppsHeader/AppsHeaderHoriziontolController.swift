@@ -9,7 +9,7 @@ import UIKit
 
 class AppsHeaderHoriziontolController: BaseCollectionViewController {
     
-    
+    var socialList: [Social] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,27 +17,20 @@ class AppsHeaderHoriziontolController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return socialList.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppHeaderCell.identifier, for: indexPath) as? AppHeaderCell else {
-          return  UICollectionViewCell()
+            return  UICollectionViewCell()
         }
+        let item = socialList[indexPath.item]
+        cell.setCell(item)
         return cell
     }
 }
 
 //MARK: - Extensions
-private extension AppsHeaderHoriziontolController {
-    func configure() {
-        collectionView.backgroundColor = .yellow
-        collectionView.register(AppHeaderCell.self, forCellWithReuseIdentifier: AppHeaderCell.identifier)
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
-    }
-}
 
 extension AppsHeaderHoriziontolController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -49,6 +42,15 @@ extension AppsHeaderHoriziontolController: UICollectionViewDelegateFlowLayout {
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 12, left: 16, bottom: 12, right: 16)
+         .init(top: 0, left: 8, bottom: 0, right: 8)
+    }
+}
+
+private extension AppsHeaderHoriziontolController {
+    func configure() {
+        collectionView.register(AppHeaderCell.self, forCellWithReuseIdentifier: AppHeaderCell.identifier)
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
     }
 }

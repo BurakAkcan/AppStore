@@ -9,13 +9,16 @@ import UIKit
 
 class AppsHorizontolCollection: BaseCollectionViewController {
     
-    var appGroup: FeedResponse? {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
+    var appGroup: FeedResponse?
+    
+//    {
+//        didSet {
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        }
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -18,19 +18,16 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel.delegate = self
         viewModel.load()
     }
-    
-    
+
 }
 
 extension HomeVC: HomeVCInterface {
     func configureVC() {
         navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
+       
     }
-    
-    
 }

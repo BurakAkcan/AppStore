@@ -9,11 +9,12 @@ import Foundation
 
 enum AppsAPI: API {
     
-    case apps
+    case free
+    case paid
     
     var method: HttpMethod {
         switch self {
-        case .apps:
+        case .free, .paid:
             return .get
         }
         
@@ -21,7 +22,7 @@ enum AppsAPI: API {
     
     var scheme: HttpScheme {
         switch self {
-        case .apps:
+        case .free, .paid:
             return .https
         }
         
@@ -29,7 +30,7 @@ enum AppsAPI: API {
     
     var host: String {
         switch self {
-        case .apps:
+        case .free, .paid :
             return "rss.applemarketingtools.com"
         }
         
@@ -37,16 +38,18 @@ enum AppsAPI: API {
     
     var path: String {
         switch self {
-        case .apps:
+        case .free:
             return "/api/v2/us/apps/top-free/50/apps.json"
-        }
+        case .paid:
+            return "/api/v2/us/apps/top-paid/50/apps.json"
+       }
         
     }
     
     var parameters: [URLQueryItem]? {
         
         switch self {
-        case .apps:
+        case .free, .paid:
             return nil
         }
         
@@ -56,3 +59,4 @@ enum AppsAPI: API {
     
 }
 // https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json
+//https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/50/apps.json
