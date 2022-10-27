@@ -45,7 +45,4 @@ enum SocialAPI: API {
             return nil
         }
     }
-    
-    
 }
-//https://api.letsbuildthatapp.com/appstore/social

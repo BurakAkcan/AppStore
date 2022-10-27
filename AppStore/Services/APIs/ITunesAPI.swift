@@ -16,7 +16,6 @@ enum ITunesAPI: API {
         case .iTune:
             return .get
         }
-        
     }
     
     var scheme: HttpScheme {
@@ -24,7 +23,6 @@ enum ITunesAPI: API {
         case .iTune:
             return .https
         }
-        
     }
     
     var host: String {
@@ -32,7 +30,6 @@ enum ITunesAPI: API {
         case .iTune:
             return "itunes.apple.com"
         }
-        
     }
     
     var path: String {
@@ -40,24 +37,16 @@ enum ITunesAPI: API {
         case .iTune:
             return "/search"
         }
-        
     }
     
     var parameters: [URLQueryItem]? {
-        
         switch self {
         case .iTune(let term):
             let params = [
                 URLQueryItem(name: "term", value: "\(term)"),
                 URLQueryItem(name: "entity", value: "software")
             ]
-            
             return params
         }
-        
-       
     }
-    
-    
 }
-// term=instagram&entity=software

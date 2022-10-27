@@ -17,7 +17,6 @@ enum AppsAPI: API {
         case .free, .paid:
             return .get
         }
-        
     }
     
     var scheme: HttpScheme {
@@ -25,7 +24,6 @@ enum AppsAPI: API {
         case .free, .paid:
             return .https
         }
-        
     }
     
     var host: String {
@@ -33,7 +31,6 @@ enum AppsAPI: API {
         case .free, .paid :
             return "rss.applemarketingtools.com"
         }
-        
     }
     
     var path: String {
@@ -43,7 +40,6 @@ enum AppsAPI: API {
         case .paid:
             return "/api/v2/us/apps/top-paid/50/apps.json"
        }
-        
     }
     
     var parameters: [URLQueryItem]? {
@@ -52,11 +48,5 @@ enum AppsAPI: API {
         case .free, .paid:
             return nil
         }
-        
-       
     }
-    
-    
 }
-// https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json
-//https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/50/apps.json

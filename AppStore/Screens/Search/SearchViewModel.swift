@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SDWebImage
 
 protocol SearchViewModelInterface {
     var delegate: SearchVCInterface? { get set }
@@ -41,10 +40,8 @@ final class SearchViewModel: SearchViewModelInterface {
                 case .success(let data):
                     self.appResults = data.results
                     self.delegate?.reloadCollectionView()
-                    
                 case .failure(let error):
                     self.appResults = []
-                    
                     print("HATA VAR \(error.localizedDescription)")
                 }
             }

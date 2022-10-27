@@ -7,29 +7,22 @@
 
 import UIKit
 
-class AppsHorizontolCollection: BaseCollectionViewController {
+class AppsHorizontolCollection: HorizontolSnappingController {
     
     var appGroup: FeedResponse?
     
-//    {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
-//    }
+    //    {
+    //        didSet {
+    //            DispatchQueue.main.async {
+    //                self.collectionView.reloadData()
+    //            }
+    //        }
+    //    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
-        
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-            
-        }
-        
     }
     
     // MARK: UICollectionViewDataSource
@@ -37,7 +30,7 @@ class AppsHorizontolCollection: BaseCollectionViewController {
         if let appGroup = appGroup {
             return appGroup.results.count
         }else{
-            return 0
+            return 0    
         }
     }
     
@@ -47,10 +40,8 @@ class AppsHorizontolCollection: BaseCollectionViewController {
             let item = appGroup.results[indexPath.item]
             cell.setCell(item)
         }
-        
         return cell
     }
-    
 }
 
 extension AppsHorizontolCollection: UICollectionViewDelegateFlowLayout {

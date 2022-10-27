@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppsHeaderHoriziontolController: BaseCollectionViewController {
+class AppsHeaderHoriziontolController: HorizontolSnappingController {
     
     var socialList: [Social] = []
     
@@ -49,8 +49,5 @@ extension AppsHeaderHoriziontolController: UICollectionViewDelegateFlowLayout {
 private extension AppsHeaderHoriziontolController {
     func configure() {
         collectionView.register(AppHeaderCell.self, forCellWithReuseIdentifier: AppHeaderCell.identifier)
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
     }
 }

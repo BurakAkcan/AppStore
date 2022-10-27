@@ -90,9 +90,7 @@ extension AppsVC: AppsVCInterface {
     }
     
     func reloadCollectionView() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        self.collectionView.reloadCollectionViewOnMainThread()
     }
     
     func startActivity() {

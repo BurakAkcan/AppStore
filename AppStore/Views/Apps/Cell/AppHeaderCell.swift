@@ -43,7 +43,7 @@ class AppHeaderCell: UICollectionViewCell {
 
 private extension AppHeaderCell {
     func configureCell() {
-        let imagePadding: CGFloat = 18
+        let imagePadding: CGFloat = 20
         companyLabel.textColor = .systemBlue
         contentLabel.numberOfLines = 2
         let stackView = VerticalStackView(arrangedSubviews: [companyLabel, contentLabel ,headerImageView],spacing: 6)
