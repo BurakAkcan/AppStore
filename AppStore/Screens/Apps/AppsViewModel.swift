@@ -61,7 +61,6 @@ extension AppsViewModel {
             switch result {
             case .success(let socailList):
                 self.socialAppList = socailList
-                print(socailList)
             case .failure(let error):
                 print(error.localizedDescription)
             }

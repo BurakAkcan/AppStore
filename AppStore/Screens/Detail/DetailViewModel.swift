@@ -16,25 +16,33 @@ class DetailViewModel: DetailViewModelInterface {
     
     var appId: String?
     
-   weak var delegate: DetailVCInterface?
+    private var app: Itune?
+    
+    weak var delegate: DetailVCInterface?
     
     func viewDidLoad() {
-       // print(appId)
+        // print(appId)
         delegate?.configureVC()
         fetcDetailData()
+    }
+    
+    func cellForItemAt() -> Itune? {
+        guard let app = app else {
+            return nil
+        }
+        return app
     }
     
     func fetcDetailData() {
         guard let appId = appId else {
             return
         }
-       
-
         NetworkManager.request(endpoint: ITunesAPI.look(id: appId)) {  [weak self] (result: Result<ItunesResponse, Error>) in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                print(response.results[0].releaseNotes)
+                self.app = response.results.first
+                self.delegate?.reloadCollectionView()
             case .failure(let error):
                 print(error.localizedDescription)
             }

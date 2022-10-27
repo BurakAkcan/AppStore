@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailCell: UICollectionViewCell {
     static let identifier = String(describing: DetailCell.self)
@@ -33,18 +34,27 @@ class DetailCell: UICollectionViewCell {
         return button
     }()
     
-    private let newsLabel: UILabel = UILabel(text: "What is news", font: .systemFont(ofSize: 20, weight: .bold))
+    private let newsLabel: UILabel = UILabel(text: "What's News", font: .systemFont(ofSize: 20, weight: .bold))
     
     private let releaseNoteLabel: UILabel = UILabel(text: "release note label..", font: .systemFont(ofSize: 16), numberOflines: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .systemGray3
         configureCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setCell(_ app: Itune) {
+        nameLabel.text = app.trackName
+        releaseNoteLabel.text = app.releaseNotes
+        priceButton.setTitle(app.formattedPrice, for: .normal)
+        if let url = URL(string: app.artworkUrl100) {
+            iconImageView.sd_setImage(with: url)
+        }
     }
     
     private func configureCell() {
@@ -54,7 +64,6 @@ class DetailCell: UICollectionViewCell {
         
         let spaceStack = HorizontolStackView(arrangedSubViews: [priceButton,UIView()])
         spaceStack.distribution = .fillEqually
-        
         let vertiStackView = VerticalStackView(arrangedSubviews: [
           nameLabel,
           spaceStack,
@@ -71,8 +80,8 @@ class DetailCell: UICollectionViewCell {
            horiStackView,
            newsLabel,
            releaseNoteLabel
-        ],spacing: 8)
-      // stackView.distribution = .fillEqually
+        ],spacing: 4)
+        stackView.distribution = .fillEqually
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
     }
