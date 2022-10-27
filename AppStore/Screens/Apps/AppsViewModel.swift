@@ -43,6 +43,13 @@ extension AppsViewModel {
         return socialAppList
     }
     
+    //Navigation
+    
+    func navigate() {
+        
+        
+    }
+    
     func fetchData() {
         delegate?.startActivity()
         let dispatchGroup = DispatchGroup()

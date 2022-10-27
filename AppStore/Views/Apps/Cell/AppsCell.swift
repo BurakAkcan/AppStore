@@ -39,7 +39,7 @@ class AppsCell: UICollectionViewCell {
         }
 
         titleLabel.text = feed.title
-        horizontolCollection.appGroup = feed
+        horizontolCollection.feedGroup = feed
        
     }
     

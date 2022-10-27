@@ -9,16 +9,9 @@ import UIKit
 
 class AppsHorizontolCollection: HorizontolSnappingController {
     
-    var appGroup: FeedResponse?
+    var feedGroup: FeedResponse?
     
-    //    {
-    //        didSet {
-    //            DispatchQueue.main.async {
-    //                self.collectionView.reloadData()
-    //            }
-    //        }
-    //    }
-    
+    var didSelectHandler: ((AppResult?) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +20,7 @@ class AppsHorizontolCollection: HorizontolSnappingController {
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let appGroup = appGroup {
+        if let appGroup = feedGroup {
             return appGroup.results.count
         }else{
             return 0    
@@ -36,11 +29,16 @@ class AppsHorizontolCollection: HorizontolSnappingController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath) as! AppsRowCell
-        if let appGroup = appGroup {
+        if let appGroup = feedGroup {
             let item = appGroup.results[indexPath.item]
             cell.setCell(item)
         }
         return cell
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let app = feedGroup?.results[indexPath.item] {
+            didSelectHandler?(app)
+        }
     }
 }
 

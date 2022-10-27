@@ -16,4 +16,8 @@ public struct Itune: Codable {
     let averageUserRating: Float
     let screenshotUrls: [String]
     let artworkUrl100: String
+    let formattedPrice: String
+    let description: String
+    let releaseDate: String
+    let releaseNotes: String
 }

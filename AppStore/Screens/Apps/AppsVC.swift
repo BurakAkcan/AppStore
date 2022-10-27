@@ -39,7 +39,7 @@ class AppsVC: BaseCollectionViewController {
     }
     
     deinit {
-        print("DEİNİTLİZE OLdu Burası jlafldnfsdnfhsdklfjsdlkjf")
+        print("DEİNİTLİZE ")
     }
     //1
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -70,9 +70,19 @@ class AppsVC: BaseCollectionViewController {
         
         if let feed = appsViewModel.cellForItemAt(indexPath: indexPath){
             cell.setCell(feed)
+            cell.horizontolCollection.didSelectHandler = { [weak self] app in
+                guard let self = self else { return }
+                let detailController = DetailVC()
+                detailController.setId(app?.id)
+                self.navigate(view: detailController)
+            }
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func navigate(view: UIViewController) {
+        navigationController?.pushViewController(view, animated: true)
     }
 }
 

@@ -10,24 +10,25 @@ import Foundation
 enum ITunesAPI: API {
     
     case iTune(term: String)
+    case look(id: String)
     
     var method: HttpMethod {
         switch self {
-        case .iTune:
+        case .iTune, .look:
             return .get
         }
     }
     
     var scheme: HttpScheme {
         switch self {
-        case .iTune:
+        case .iTune, .look:
             return .https
         }
     }
     
     var host: String {
         switch self {
-        case .iTune:
+        case .iTune, .look:
             return "itunes.apple.com"
         }
     }
@@ -36,6 +37,8 @@ enum ITunesAPI: API {
         switch self {
         case .iTune:
             return "/search"
+        case .look:
+            return "/lookup"
         }
     }
     
@@ -47,6 +50,14 @@ enum ITunesAPI: API {
                 URLQueryItem(name: "entity", value: "software")
             ]
             return params
+        case .look(let id):
+            let params = [
+              URLQueryItem(name: "id", value: id)
+            ]
+            return params
         }
     }
 }
+
+
+//https://itunes.apple.com/lookup?id=529815782
