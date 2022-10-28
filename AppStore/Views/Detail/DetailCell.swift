@@ -40,7 +40,7 @@ class DetailCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemGray3
+        self.backgroundColor = .white
         configureCell()
     }
     

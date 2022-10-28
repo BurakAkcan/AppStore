@@ -21,7 +21,6 @@ class DetailViewModel: DetailViewModelInterface {
     weak var delegate: DetailVCInterface?
     
     func viewDidLoad() {
-        // print(appId)
         delegate?.configureVC()
         fetcDetailData()
     }

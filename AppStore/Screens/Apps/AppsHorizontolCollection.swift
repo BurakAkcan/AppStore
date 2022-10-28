@@ -16,6 +16,7 @@ class AppsHorizontolCollection: HorizontolSnappingController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     // MARK: UICollectionViewDataSource

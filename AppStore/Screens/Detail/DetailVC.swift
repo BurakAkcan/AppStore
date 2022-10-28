@@ -13,6 +13,7 @@ protocol DetailVCInterface: AnyObject {
 }
 
 class DetailVC: BaseCollectionViewController {
+    //MARK: - Properties
     
     private let detailViewModel = DetailViewModel()
 
@@ -22,17 +23,27 @@ class DetailVC: BaseCollectionViewController {
         detailViewModel.viewDidLoad()
     }
     
+    //MARK: - Methods
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell else {
-            return UICollectionViewCell()
+        
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as! DetailCell
+            if let item = detailViewModel.cellForItemAt() {
+                cell.setCell(item)
+            }
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPreviewCell.identifier, for: indexPath) as! DetailPreviewCell
+            if let item = detailViewModel.cellForItemAt() {
+                cell.horizontolController.collectionView.reloadCollectionViewOnMainThread()
+                cell.horizontolController.app = item
+            }
+            return cell
         }
-        if let item = detailViewModel.cellForItemAt() {
-            cell.setCell(item)
-        }
-        return cell
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        2
     }
     
     func setId(_ id: String?) {
@@ -40,11 +51,11 @@ class DetailVC: BaseCollectionViewController {
     }
     func registerCollectionCell() {
         collectionView.register(DetailCell.self, forCellWithReuseIdentifier: DetailCell.identifier)
+        collectionView.register(DetailPreviewCell.self, forCellWithReuseIdentifier: DetailPreviewCell.identifier)
     }
 }
 
-//Extensions
-
+//MARK: - Extension
 extension DetailVC: DetailVCInterface {
     func reloadCollectionView() {
         DispatchQueue.main.async {
@@ -62,13 +73,33 @@ extension DetailVC: DetailVCInterface {
 
 extension DetailVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        //Calculate the necessary size for our cell
-        let dummyCell = DetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
-        //immediately force update view
-        dummyCell.layoutIfNeeded()
-        let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
-        
-        return .init(width: view.frame.width, height: estimatedSize.height)
+        if indexPath.item == 0 {
+            //Calculate the necessary size for our cell
+            let dummyCell = DetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
+            //immediately force update view
+            dummyCell.layoutIfNeeded()
+            let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+            
+            return .init(width: view.frame.width, height: estimatedSize.height)
+        } else {
+            return .init(width: view.frame.width, height: 500)
+        }
     }
 }
+
+
+//if indexPath.item == 0 {
+//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell else {
+//        return UICollectionViewCell()
+//    }
+//    if let item = detailViewModel.cellForItemAt() {
+//        cell.setCell(item)
+//        return cell
+//    }
+//}else {
+//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPreviewCell.identifier, for: indexPath) as? DetailPreviewCell else {
+//        return UICollectionViewCell()
+//    }
+//    return cell
+//}
+//return UICollectionViewCell()
