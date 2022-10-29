@@ -33,17 +33,24 @@ class DetailVC: BaseCollectionViewController {
                 cell.setCell(item)
             }
             return cell
-        }else {
+        }else if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPreviewCell.identifier, for: indexPath) as! DetailPreviewCell
             if let item = detailViewModel.cellForItemAt() {
                 cell.horizontolController.collectionView.reloadCollectionViewOnMainThread()
                 cell.horizontolController.app = item
             }
             return cell
+        } else {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCell.identifier, for: indexPath) as! ReviewCell
+            cell.reviewHorizontolController.entryList = detailViewModel.createEntryCell()
+            cell.reviewHorizontolController.collectionView.reloadCollectionViewOnMainThread()
+            return cell
+            
         }
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        3
     }
     
     func setId(_ id: String?) {
@@ -52,6 +59,7 @@ class DetailVC: BaseCollectionViewController {
     func registerCollectionCell() {
         collectionView.register(DetailCell.self, forCellWithReuseIdentifier: DetailCell.identifier)
         collectionView.register(DetailPreviewCell.self, forCellWithReuseIdentifier: DetailPreviewCell.identifier)
+        collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: ReviewCell.identifier)
     }
 }
 
@@ -81,25 +89,10 @@ extension DetailVC: UICollectionViewDelegateFlowLayout {
             let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             
             return .init(width: view.frame.width, height: estimatedSize.height)
-        } else {
+        } else  if indexPath.item == 1{
             return .init(width: view.frame.width, height: 500)
+        }else {
+            return .init(width: view.frame.width, height: 300)
         }
     }
 }
-
-
-//if indexPath.item == 0 {
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell else {
-//        return UICollectionViewCell()
-//    }
-//    if let item = detailViewModel.cellForItemAt() {
-//        cell.setCell(item)
-//        return cell
-//    }
-//}else {
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPreviewCell.identifier, for: indexPath) as? DetailPreviewCell else {
-//        return UICollectionViewCell()
-//    }
-//    return cell
-//}
-//return UICollectionViewCell()

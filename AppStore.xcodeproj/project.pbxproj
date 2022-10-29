@@ -17,10 +17,19 @@
 		5422B8AE2902DF910073A599 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422B8AD2902DF910073A599 /* ITunesAPI.swift */; };
 		5422B8B02902E4A50073A599 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422B8AF2902E4A50073A599 /* NetworkManager.swift */; };
 		5422B8B32902E8030073A599 /* ItunesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422B8B22902E8030073A599 /* ItunesResponse.swift */; };
+		5428E8BF290C355A0020B20F /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8BE290C355A0020B20F /* ReviewCell.swift */; };
+		5428E8C1290C46650020B20F /* ReviewHorizontolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8C0290C46650020B20F /* ReviewHorizontolController.swift */; };
+		5428E8C3290C46AD0020B20F /* ReviewHorizontolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8C2290C46AD0020B20F /* ReviewHorizontolCell.swift */; };
+		5428E8C6290C80890020B20F /* ReviewAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8C5290C80890020B20F /* ReviewAPI.swift */; };
 		542CF851290177CA000BA643 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CF850290177CA000BA643 /* UIHelper.swift */; };
 		542CF85429017804000BA643 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CF85329017804000BA643 /* CGFloat+Extension.swift */; };
 		542CF85629017836000BA643 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CF85529017836000BA643 /* UICollectionView+Extension.swift */; };
 		542CF85829017855000BA643 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CF85729017855000BA643 /* UIImageView+Extension.swift */; };
+		543757DF290D135F00DF017A /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543757DE290D135F00DF017A /* Review.swift */; };
+		543757E1290D139C00DF017A /* FeedReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543757E0290D139C00DF017A /* FeedReview.swift */; };
+		543757E5290D142900DF017A /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543757E4290D142900DF017A /* Entry.swift */; };
+		543757E7290D163E00DF017A /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543757E6290D163E00DF017A /* Label.swift */; };
+		543757E9290D1BAB00DF017A /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543757E8290D1BAB00DF017A /* Author.swift */; };
 		5449DA542906AD4F00375C55 /* AppHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5449DA532906AD4F00375C55 /* AppHeaderCell.swift */; };
 		5449DA582906D17800375C55 /* AppResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5449DA572906D17800375C55 /* AppResponse.swift */; };
 		5449DA5A2906D19500375C55 /* Apps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5449DA592906D19500375C55 /* Apps.swift */; };
@@ -94,10 +103,19 @@
 		5422B8AD2902DF910073A599 /* ITunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
 		5422B8AF2902E4A50073A599 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5422B8B22902E8030073A599 /* ItunesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesResponse.swift; sourceTree = "<group>"; };
+		5428E8BE290C355A0020B20F /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		5428E8C0290C46650020B20F /* ReviewHorizontolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHorizontolController.swift; sourceTree = "<group>"; };
+		5428E8C2290C46AD0020B20F /* ReviewHorizontolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHorizontolCell.swift; sourceTree = "<group>"; };
+		5428E8C5290C80890020B20F /* ReviewAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAPI.swift; sourceTree = "<group>"; };
 		542CF850290177CA000BA643 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		542CF85329017804000BA643 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		542CF85529017836000BA643 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		542CF85729017855000BA643 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		543757DE290D135F00DF017A /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		543757E0290D139C00DF017A /* FeedReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReview.swift; sourceTree = "<group>"; };
+		543757E4290D142900DF017A /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		543757E6290D163E00DF017A /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		543757E8290D1BAB00DF017A /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		5449DA532906AD4F00375C55 /* AppHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderCell.swift; sourceTree = "<group>"; };
 		5449DA572906D17800375C55 /* AppResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppResponse.swift; sourceTree = "<group>"; };
 		5449DA592906D19500375C55 /* Apps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apps.swift; sourceTree = "<group>"; };
@@ -275,6 +293,7 @@
 		5422B8B12902E7EC0073A599 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				543757DD290D134A00DF017A /* ReviewModel */,
 				541BE6F42909506900D70EFF /* SocialModel */,
 				5449DA562906D13900375C55 /* AppModel */,
 				5449DA552906D12500375C55 /* ITuneModel */,
@@ -303,6 +322,18 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		543757DD290D134A00DF017A /* ReviewModel */ = {
+			isa = PBXGroup;
+			children = (
+				543757DE290D135F00DF017A /* Review.swift */,
+				543757E0290D139C00DF017A /* FeedReview.swift */,
+				543757E4290D142900DF017A /* Entry.swift */,
+				543757E6290D163E00DF017A /* Label.swift */,
+				543757E8290D1BAB00DF017A /* Author.swift */,
+			);
+			path = ReviewModel;
+			sourceTree = "<group>";
+		};
 		5449DA552906D12500375C55 /* ITuneModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +359,7 @@
 				5422B8AD2902DF910073A599 /* ITunesAPI.swift */,
 				5449DA5C2906D3FB00375C55 /* AppsAPI.swift */,
 				541BE6F7290950D200D70EFF /* SocialAPI.swift */,
+				5428E8C5290C80890020B20F /* ReviewAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -488,6 +520,7 @@
 				54B58A4E290A7AFB000EF293 /* DetailViewModel.swift */,
 				54B58A52290A7B2E000EF293 /* DetailVC.swift */,
 				544BC9B2290BCE0200677923 /* PreviewScreenController.swift */,
+				5428E8C0290C46650020B20F /* ReviewHorizontolController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -498,6 +531,8 @@
 				54B58A55290AACCE000EF293 /* DetailCell.swift */,
 				54AD2996290BB50500AC55C1 /* DetailPreviewCell.swift */,
 				544BC9B4290BD05900677923 /* ScreenCell.swift */,
+				5428E8BE290C355A0020B20F /* ReviewCell.swift */,
+				5428E8C2290C46AD0020B20F /* ReviewHorizontolCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -754,6 +789,7 @@
 			files = (
 				5422B8B02902E4A50073A599 /* NetworkManager.swift in Sources */,
 				540B3FAE2904A02A00B62DE9 /* AppsCell.swift in Sources */,
+				5428E8C6290C80890020B20F /* ReviewAPI.swift in Sources */,
 				541BE6F62909507900D70EFF /* Social.swift in Sources */,
 				5485A46F2905E18C007945BE /* AppsHeaderHoriziontolController.swift in Sources */,
 				5485A46B29059598007945BE /* AppsRowCell.swift in Sources */,
@@ -761,6 +797,7 @@
 				5450820829013A1F00F397A0 /* BaseTabbarController.swift in Sources */,
 				547F94882901EEB900765BBB /* UIView+Extension.swift in Sources */,
 				547F948D290204F800765BBB /* HorizontolStackView.swift in Sources */,
+				5428E8BF290C355A0020B20F /* ReviewCell.swift in Sources */,
 				5450820B29013E3900F397A0 /* HomeVC.swift in Sources */,
 				5449DA5D2906D3FB00375C55 /* AppsAPI.swift in Sources */,
 				54E8BF542907062500EB52D2 /* FeedResponse.swift in Sources */,
@@ -779,22 +816,29 @@
 				5450820D29013E4500F397A0 /* AppsVC.swift in Sources */,
 				5422B8B32902E8030073A599 /* ItunesResponse.swift in Sources */,
 				547F948B2902032800765BBB /* VerticalStackView.swift in Sources */,
+				543757E9290D1BAB00DF017A /* Author.swift in Sources */,
+				543757E1290D139C00DF017A /* FeedReview.swift in Sources */,
 				54AD2997290BB50500AC55C1 /* DetailPreviewCell.swift in Sources */,
 				54B58A4F290A7AFB000EF293 /* DetailViewModel.swift in Sources */,
 				544CC60E29030F2100EE0EE5 /* Itune.swift in Sources */,
 				544BC9B3290BCE0200677923 /* PreviewScreenController.swift in Sources */,
 				5450821629014EDB00F397A0 /* SearchViewModel.swift in Sources */,
 				542CF85629017836000BA643 /* UICollectionView+Extension.swift in Sources */,
+				5428E8C1290C46650020B20F /* ReviewHorizontolController.swift in Sources */,
 				5422B8AA2902DDC30073A599 /* APIError.swift in Sources */,
 				5449DA582906D17800375C55 /* AppResponse.swift in Sources */,
 				54A61FFA29012D2500D38E29 /* SceneDelegate.swift in Sources */,
 				5450821429014BA700F397A0 /* AppsViewModel.swift in Sources */,
 				544BC9B5290BD05900677923 /* ScreenCell.swift in Sources */,
+				543757E5290D142900DF017A /* Entry.swift in Sources */,
 				5450820F29013E5000F397A0 /* SearchVC.swift in Sources */,
 				5485A46429055704007945BE /* UILabel+Extension.swift in Sources */,
 				54879A9729019802004CBEFC /* SearchResultCell.swift in Sources */,
 				5422B8A82902DDB90073A599 /* APIMethod.swift in Sources */,
+				5428E8C3290C46AD0020B20F /* ReviewHorizontolCell.swift in Sources */,
 				542CF851290177CA000BA643 /* UIHelper.swift in Sources */,
+				543757DF290D135F00DF017A /* Review.swift in Sources */,
+				543757E7290D163E00DF017A /* Label.swift in Sources */,
 				541BE6F8290950D200D70EFF /* SocialAPI.swift in Sources */,
 				54B58A56290AACCE000EF293 /* DetailCell.swift in Sources */,
 				54B58A53290A7B2E000EF293 /* DetailVC.swift in Sources */,

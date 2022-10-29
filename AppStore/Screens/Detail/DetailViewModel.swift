@@ -17,12 +17,14 @@ class DetailViewModel: DetailViewModelInterface {
     var appId: String?
     
     private var app: Itune?
+    private var entry: [Entry] = []
     
     weak var delegate: DetailVCInterface?
     
     func viewDidLoad() {
         delegate?.configureVC()
         fetcDetailData()
+        getReview()
     }
     
     func cellForItemAt() -> Itune? {
@@ -30,6 +32,10 @@ class DetailViewModel: DetailViewModelInterface {
             return nil
         }
         return app
+    }
+    
+    func createEntryCell()-> [Entry] {
+        entry
     }
     
     func fetcDetailData() {
@@ -47,6 +53,25 @@ class DetailViewModel: DetailViewModelInterface {
             }
             
         }
+    }
+    
+    func getReview() {
+        guard let appId = appId else {
+            return
+        }
+        
+        NetworkManager.request(endpoint: ReviewAPI.review(id: appId)) {  [weak self] (result: Result<Review, Error>) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                self.entry = response.feed.entry
+                self.delegate?.reloadCollectionView()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+
     }
     
 }
