@@ -95,4 +95,8 @@ extension DetailVC: UICollectionViewDelegateFlowLayout {
             return .init(width: view.frame.width, height: 300)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .init(top: 0, left: 0, bottom: 16, right: 0)
+    }
 }

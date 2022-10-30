@@ -17,7 +17,6 @@ class ReviewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureCell()
-        self.backgroundColor = .yellow
     }
     
     required init?(coder: NSCoder) {
@@ -25,9 +24,11 @@ class ReviewCell: UICollectionViewCell {
     }
     
     private func configureCell() {
-        
+        addSubview(titleLabel)
         addSubview(reviewHorizontolController.view)
-        reviewHorizontolController.view.fillSuperview()
+        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 4, left: 20, bottom: 0
+                                                                                                                          , right: 12))
+        reviewHorizontolController.view.anchor(top: titleLabel.bottomAnchor , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,padding: .init(top: 8, left: 0, bottom: 0, right: 0))
         
     }
     

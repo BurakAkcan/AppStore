@@ -10,6 +10,10 @@ import Foundation
 protocol AppsViewModelInterface {
     var delegate: AppsVCInterface? { get set }
     func load()
+    func numberOfItemInSection()->Int
+    func cellForItemAt(indexPath: IndexPath) -> FeedResponse?
+    func setHeader()-> Socials
+    func fetchData()
 }
 
 final class AppsViewModel: AppsViewModelInterface {
@@ -41,13 +45,6 @@ extension AppsViewModel {
     
     func setHeader()-> Socials {
         return socialAppList
-    }
-    
-    //Navigation
-    
-    func navigate() {
-        
-        
     }
     
     func fetchData() {

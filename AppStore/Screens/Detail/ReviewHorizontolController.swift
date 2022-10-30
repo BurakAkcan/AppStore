@@ -24,7 +24,7 @@ class ReviewHorizontolController: HorizontolSnappingController {
     
     //change
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        entryList.count
+        entryList.count 
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

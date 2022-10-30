@@ -10,6 +10,10 @@ import Foundation
 protocol DetailViewModelInterface {
     var delegate: DetailVCInterface? { get set }
     func viewDidLoad()
+    func cellForItemAt()-> Itune?
+    func createEntryCell()-> [Entry]
+    func fetcDetailData()
+    func getReview()
 }
 
 class DetailViewModel: DetailViewModelInterface {
