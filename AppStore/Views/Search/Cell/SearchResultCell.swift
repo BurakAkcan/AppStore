@@ -71,7 +71,6 @@ final class SearchResultCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray
         configureCell()
     }
     
@@ -82,7 +81,7 @@ final class SearchResultCell: UICollectionViewCell {
     func setUp(_ item:  Itune) {
         nameLabel.text = item.trackName
         categoryLabel.text = item.primaryGenreName
-        ratingsLabel.text = String(format: "%.2f", item.averageUserRating)
+        ratingsLabel.text = String(format: "%.2f", item.averageUserRating ?? "")
        // iconImageView.loadFromURL(urlString: item.artworkUrl100)
       //  screenShotImage1.loadFromURL(urlString: item.screenshotUrls[0])
         let url = URL(string: item.artworkUrl100)!

@@ -10,6 +10,8 @@ import Foundation
 protocol SearchViewModelInterface {
     var delegate: SearchVCInterface? { get set }
     func load()
+    func term(_ term: String)
+    func getAppItem(indexPath: IndexPath)-> Itune?
 }
 
 final class SearchViewModel: SearchViewModelInterface {
@@ -30,6 +32,10 @@ final class SearchViewModel: SearchViewModelInterface {
         getApps()
     }
     
+    func getAppItem(indexPath: IndexPath)-> Itune? {
+        appResults[indexPath.item]
+    }
+    
     
    private func getApps() {
         timer?.invalidate()
@@ -40,6 +46,7 @@ final class SearchViewModel: SearchViewModelInterface {
                 case .success(let data):
                     self.appResults = data.results
                     self.delegate?.reloadCollectionView()
+                  //  print(data.results.first?.trackId)
                 case .failure(let error):
                     self.appResults = []
                     print("HATA VAR \(error.localizedDescription)")

@@ -53,6 +53,19 @@ class SearchVC: BaseCollectionViewController {
         print("deinit")
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appDetailController = DetailVC()
+        let item = searchViewModel.getAppItem(indexPath: indexPath)
+        if let item = item {
+            let appId = item.trackId ?? 0
+            appDetailController.setId(String(appId))
+            navigate(view: appDetailController)
+        }
+    }
+    
+    func navigate(view: UIViewController) {
+        navigationController?.pushViewController(view, animated: true)
+    }
     
     func setUpSearchBar() {
         navigationItem.searchController = self.searchController

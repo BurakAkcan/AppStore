@@ -7,8 +7,6 @@
 
 import UIKit
 
-fileprivate let dumyId = "header"
-
 protocol AppsVCInterface: AnyObject {
     func configureVC()
     func reloadCollectionView()

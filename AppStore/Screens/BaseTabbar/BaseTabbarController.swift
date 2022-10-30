@@ -9,7 +9,7 @@ import UIKit
 
 final class BaseTabbarController: UITabBarController {
     
-    private let homeNav = UINavigationController(rootViewController: HomeVC())
+    private let homeNav = UINavigationController(rootViewController: TodayVC())
     private let appsNav = UINavigationController(rootViewController: AppsVC())
     private let searchNav = UINavigationController(rootViewController: SearchVC())
 
@@ -21,7 +21,7 @@ final class BaseTabbarController: UITabBarController {
     
     private func setTabbars() {
         viewControllers = [
-          createNavController(viewController: HomeVC(), imageName: "house", tabbarTitle: "Today"),
+          createNavController(viewController: TodayVC(), imageName: "house", tabbarTitle: "Today"),
           createNavController(viewController: AppsVC(), imageName: "square.stack.3d.up.fill", tabbarTitle: "Apps"),
           createNavController(viewController: SearchVC(), imageName: "magnifyingglass", tabbarTitle: "Search"),
         ]

@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol HomeViewModelInterface {
+protocol TodayViewModelInterface {
     
     var delegate: HomeVCInterface? { get set }
     func load()
     
 }
 
-final class HomeViewModel: HomeViewModelInterface {
+final class HomeViewModel: TodayViewModelInterface {
     
     
    private(set) var title: String = "Today"
@@ -23,6 +23,7 @@ final class HomeViewModel: HomeViewModelInterface {
 extension HomeViewModel {
     func load() {
         delegate?.configureVC()
+        delegate?.registerCell()
         
     }
    
