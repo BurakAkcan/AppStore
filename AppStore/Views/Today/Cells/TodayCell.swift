@@ -14,6 +14,7 @@ class TodayCell: UICollectionViewCell {
     private let imageView: UIImageView = {
        let imageView = UIImageView(image: UIImage(named: "garden.png"))
         imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
