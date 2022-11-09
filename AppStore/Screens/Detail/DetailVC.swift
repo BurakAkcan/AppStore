@@ -10,13 +10,24 @@ import UIKit
 protocol DetailVCInterface: AnyObject {
     func configureVC()
     func reloadCollectionView()
+    func startActivity()
+    func stopActivity()
 }
 
 class DetailVC: BaseCollectionViewController {
     //MARK: - Properties
     
     private let detailViewModel = DetailViewModel()
-
+    
+    //MARK: - Outputs
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let av = UIActivityIndicatorView(style: .large)
+        av.hidesWhenStopped = true
+        av.color = .darkGray
+        return av
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         detailViewModel.delegate = self
@@ -26,10 +37,7 @@ class DetailVC: BaseCollectionViewController {
     //MARK: - Methods
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        #warning("Review Reload düzeltilecek")
-        collectionView.reloadCollectionViewOnMainThread()
-        
+                
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as! DetailCell
             if let item = detailViewModel.cellForItemAt() {
@@ -80,6 +88,20 @@ extension DetailVC: DetailVCInterface {
         collectionView.backgroundColor = .white
         navigationItem.largeTitleDisplayMode = .never
         registerCollectionCell()
+        view.addSubview(activityIndicator)
+        activityIndicator.centerInSuperview()
+    }
+    
+    func startActivity() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
+    
+    func stopActivity() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
     }
     
 }

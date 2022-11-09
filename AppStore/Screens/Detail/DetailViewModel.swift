@@ -26,6 +26,7 @@ class DetailViewModel: DetailViewModelInterface {
     weak var delegate: DetailVCInterface?
     
     func viewDidLoad() {
+        delegate?.startActivity()
         delegate?.configureVC()
         fetcDetailData()
         getReview()
@@ -55,7 +56,8 @@ class DetailViewModel: DetailViewModelInterface {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
+            self.delegate?.stopActivity()
+
         }
     }
     
@@ -73,7 +75,6 @@ class DetailViewModel: DetailViewModelInterface {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
         }
 
     }

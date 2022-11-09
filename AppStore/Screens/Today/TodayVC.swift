@@ -42,6 +42,11 @@ class TodayVC: BaseCollectionViewController {
         viewModel.delegate = self
         viewModel.load()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.setNeedsLayout()
+    }
 }
 
 //MARK: - Extensions
@@ -155,9 +160,7 @@ extension TodayVC: TodayVCInterface {
         } completion: { _ in
             gesture.view?.removeFromSuperview()
             self.todayTableVC?.removeFromParent()
-            
         }
-        
     }
     func reloadCollection() {
         DispatchQueue.main.async {

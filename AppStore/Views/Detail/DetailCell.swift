@@ -21,7 +21,7 @@ class DetailCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let nameLabel = UILabel(text: "app name ", font: .systemFont(ofSize: 20, weight: .medium), numberOflines: 2)
+    private let nameLabel = UILabel(text: "app name ", font: .systemFont(ofSize: 16, weight: .bold), numberOflines: 1)
     
     private let  priceButton: UIButton = {
         let button = UIButton(type: .system)
@@ -60,7 +60,11 @@ class DetailCell: UICollectionViewCell {
     private func configureCell() {
         priceButton.widthAnchor.constraint(equalToConstant: .dWidth*0.1).isActive = true
         iconImageView.constrainHeight(constant: 100)
-        iconImageView.constrainHeight(constant: 100)
+        iconImageView.constrainWidth(constant: 100)
+        let customView = UIView()
+        customView.addSubview(iconImageView)
+        iconImageView.centerYInSuperview()
+        
         
         let spaceStack = HorizontolStackView(arrangedSubViews: [priceButton,UIView()])
         spaceStack.distribution = .fillEqually
@@ -71,9 +75,10 @@ class DetailCell: UICollectionViewCell {
         ], spacing: 6)
         
         let horiStackView = HorizontolStackView(arrangedSubViews: [
-          iconImageView,
+          customView,
+          UIView(),
           vertiStackView
-        ], spacing: 6)
+        ], spacing: 0)
         horiStackView.distribution = .fillEqually
         
         let stackView = VerticalStackView(arrangedSubviews: [

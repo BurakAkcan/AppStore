@@ -12,7 +12,6 @@ class TodayMultipleController: BaseCollectionViewController {
     fileprivate let spacing: CGFloat = 16
     fileprivate var height: CGFloat!
 
-    
     var appList: [AppResult] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -22,7 +21,7 @@ class TodayMultipleController: BaseCollectionViewController {
     }
     
     var didSelectHandler: ((AppResult) -> Void)?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollection()
@@ -32,10 +31,12 @@ class TodayMultipleController: BaseCollectionViewController {
     func configureCollection() {
         collectionView.register(MultipleAppCell.self, forCellWithReuseIdentifier: MultipleAppCell.idetifier)
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.isScrollEnabled = false
     }
     
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         min(4, appList.count)
+        min(4, appList.count)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,9 +47,10 @@ class TodayMultipleController: BaseCollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = appList[indexPath.item]
+        
         didSelectHandler?(item)
     }
-
+    
 }
 
 extension TodayMultipleController: UICollectionViewDelegateFlowLayout {
@@ -56,7 +58,7 @@ extension TodayMultipleController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         height = (view.frame.height - 3*spacing) / 4
-       return .init(width: view.frame.width, height: height)
+        return .init(width: view.frame.width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
