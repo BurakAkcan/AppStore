@@ -27,6 +27,9 @@ class DetailVC: BaseCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        #warning("Review Reload düzeltilecek")
+        collectionView.reloadCollectionViewOnMainThread()
+        
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as! DetailCell
             if let item = detailViewModel.cellForItemAt() {
@@ -45,9 +48,11 @@ class DetailVC: BaseCollectionViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCell.identifier, for: indexPath) as! ReviewCell
             cell.reviewHorizontolController.entryList = detailViewModel.createEntryCell()
             cell.reviewHorizontolController.collectionView.reloadCollectionViewOnMainThread()
+            
             return cell
             
         }
+        
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         3

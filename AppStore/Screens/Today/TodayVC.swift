@@ -7,23 +7,32 @@
 
 import UIKit
 
-protocol HomeVCInterface: AnyObject {
+protocol TodayVCInterface: AnyObject {
     func configureVC()
     func registerCell()
+    func reloadCollection()
 }
 
 class TodayVC: BaseCollectionViewController {
     
     //MARK: - Properties
     
-    private let viewModel = HomeViewModel()
+    private let viewModel = TodayViewModel()
     var startingFrame: CGRect?
     var todayTableVC: TodayFullScreenTVC?
-    
+   
     var topConstraints : NSLayoutConstraint?
     var leadingConstraints : NSLayoutConstraint?
     var widthConsraints : NSLayoutConstraint?
     var heightConsraints : NSLayoutConstraint?
+    
+    //MARK: - Outputs
+    
+    let activityIndicator: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.color = .black
+        return aiv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,32 +43,42 @@ class TodayVC: BaseCollectionViewController {
 
 //MARK: - Extensions
 
-extension TodayVC: HomeVCInterface {
+extension TodayVC: TodayVCInterface {
     func configureVC() {
         navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.backgroundColor = #colorLiteral(red: 0.8765783906, green: 0.8876134753, blue: 0.8874192834, alpha: 1)
     }
     
-    func registerCell() {
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayCell.identifier)
+   func registerCell() {
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayMultipleCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        viewModel.numberOfItemsInSection()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayCell.identifier, for: indexPath) as? TodayCell else {
-            return UICollectionViewCell()
+        // you can do that give an identifier cell
+        let cellId = viewModel.itemList[indexPath.item].cellType.rawValue
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        if let cell = cell as? TodayCell {
+            cell.setCell(item: viewModel.cellForItemAt(indexPath: indexPath))
+        }else if let cell = cell as? TodayMultipleCell {
+            cell.multipleAppsController.appList = viewModel.appList
+            cell.setCell(item: viewModel.cellForItemAt(indexPath: indexPath))
         }
+   
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let fullscreenTVC = TodayFullScreenTVC()
-        
+        fullscreenTVC.todayItem = viewModel.cellForItemAt(indexPath: indexPath)
         let todayTableView = fullscreenTVC.view!
         view.addSubview(todayTableView)
         addChild(fullscreenTVC)
@@ -90,7 +109,8 @@ extension TodayVC: HomeVCInterface {
             self.widthConsraints?.constant = self.view.frame.width
             self.heightConsraints?.constant = self.view.frame.height
             self.view.layoutIfNeeded()
-            
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+            self.navigationController?.isNavigationBarHidden = true
             self.tabBarController?.tabBar.isHidden = true
         }, completion: nil)
         
@@ -98,18 +118,14 @@ extension TodayVC: HomeVCInterface {
     
     @objc func handleRemoveRedView(gesture: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut) {
-           // gesture.view?.frame = self.startingFrame ?? .zero
-            
             self.todayTableVC?.tableView.contentOffset = .zero
             guard let startingFrame = self.startingFrame else { return }
-            
             self.topConstraints?.constant = startingFrame.origin.y
             self.leadingConstraints?.constant = startingFrame.origin.x
             self.widthConsraints?.constant = startingFrame.width
             self.heightConsraints?.constant = startingFrame.height
-            
             self.tabBarController?.tabBar.isHidden = false
-            
+            self.navigationController?.isNavigationBarHidden = false
             self.view.layoutIfNeeded()
             
         } completion: { _ in
@@ -119,11 +135,17 @@ extension TodayVC: HomeVCInterface {
         }
 
     }
+    func reloadCollection() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
+
 
 extension TodayVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: view.frame.width - (.dWidth * 0.16), height: (.dheight * 0.4))
+        .init(width: view.frame.width - (.dWidth * 0.16), height: (.dheight * 0.55))
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         (.dheight * 0.04)
