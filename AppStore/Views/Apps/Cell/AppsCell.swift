@@ -37,10 +37,8 @@ class AppsCell: UICollectionViewCell {
         guard let feed = feed else {
             return
         }
-
         titleLabel.text = feed.title
         horizontolCollection.feedGroup = feed
-       
     }
     
 }

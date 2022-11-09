@@ -20,6 +20,8 @@ class TodayMultipleController: BaseCollectionViewController {
             }
         }
     }
+    
+    var didSelectHandler: ((AppResult) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,8 @@ class TodayMultipleController: BaseCollectionViewController {
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Add similar codes AppsHorizontolColection
+        let item = appList[indexPath.item]
+        didSelectHandler?(item)
     }
 
 }

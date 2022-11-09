@@ -81,7 +81,7 @@ extension AppsViewModel {
             dispatchGroup.leave()
             guard let self = self else { return }
             switch result {
-            case .success(let paidGroup):
+            case .success(let paidGroup):    
                 self.appGroup2 = paidGroup
                 print("ÜCRETLİ app")
             case .failure(let error):
