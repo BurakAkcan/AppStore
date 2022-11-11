@@ -2,7 +2,7 @@
 
 ## ✍️ About
 
-In this repository, I benefited from letsbuildthatapss's appstore training content.
+In this repository, I benefited from letsbuildthatapss's appstore learning content.
 MVC design pattern was used the project, I reprogrammed it with protocol oriented MVVM design pattern.
 I completely changed the network layer and reprogrammed it with the moya tactic.
 
