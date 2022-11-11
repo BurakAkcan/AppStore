@@ -37,7 +37,7 @@ class DetailVC: BaseCollectionViewController {
     //MARK: - Methods
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                
+        
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as! DetailCell
             if let item = detailViewModel.cellForItemAt() {
@@ -58,10 +58,9 @@ class DetailVC: BaseCollectionViewController {
             cell.reviewHorizontolController.collectionView.reloadCollectionViewOnMainThread()
             
             return cell
-            
         }
-        
     }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         3
     }

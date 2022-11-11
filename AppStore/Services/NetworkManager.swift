@@ -23,7 +23,6 @@ final class NetworkManager {
             print("url creation error")
             return
         }
-        print(url)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endpoint.method.rawValue
         

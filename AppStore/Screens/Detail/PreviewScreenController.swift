@@ -43,5 +43,4 @@ extension PreviewScreenController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         .init(width: 250, height: view.frame.height )
     }
-    
 }

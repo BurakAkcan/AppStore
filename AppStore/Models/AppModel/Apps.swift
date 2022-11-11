@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppResult: Codable {
+public struct AppResult: Codable {
     let artistName, id, name, releaseDate: String
     let artworkUrl100: String
     let url: String

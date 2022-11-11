@@ -13,9 +13,7 @@ class DetailCell: UICollectionViewCell {
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         imageView.layer.cornerRadius = 16
         imageView.clipsToBounds = true
         return imageView
@@ -69,22 +67,22 @@ class DetailCell: UICollectionViewCell {
         let spaceStack = HorizontolStackView(arrangedSubViews: [priceButton,UIView()])
         spaceStack.distribution = .fillEqually
         let vertiStackView = VerticalStackView(arrangedSubviews: [
-          nameLabel,
-          spaceStack,
-          UIView()
+            nameLabel,
+            spaceStack,
+            UIView()
         ], spacing: 6)
         
         let horiStackView = HorizontolStackView(arrangedSubViews: [
-          customView,
-          UIView(),
-          vertiStackView
+            customView,
+            UIView(),
+            vertiStackView
         ], spacing: 0)
         horiStackView.distribution = .fillEqually
         
         let stackView = VerticalStackView(arrangedSubviews: [
-           horiStackView,
-           newsLabel,
-           releaseNoteLabel
+            horiStackView,
+            newsLabel,
+            releaseNoteLabel
         ],spacing: 4)
         stackView.distribution = .fillEqually
         addSubview(stackView)

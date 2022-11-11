@@ -17,6 +17,7 @@
 		5422B8AE2902DF910073A599 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422B8AD2902DF910073A599 /* ITunesAPI.swift */; };
 		5422B8B02902E4A50073A599 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422B8AF2902E4A50073A599 /* NetworkManager.swift */; };
 		5422B8B32902E8030073A599 /* ItunesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422B8B22902E8030073A599 /* ItunesResponse.swift */; };
+		54235359291CDE4500930000 /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54235358291CDE4500930000 /* BaseTodayCell.swift */; };
 		5428E8BF290C355A0020B20F /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8BE290C355A0020B20F /* ReviewCell.swift */; };
 		5428E8C1290C46650020B20F /* ReviewHorizontolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8C0290C46650020B20F /* ReviewHorizontolController.swift */; };
 		5428E8C3290C46AD0020B20F /* ReviewHorizontolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5428E8C2290C46AD0020B20F /* ReviewHorizontolCell.swift */; };
@@ -109,6 +110,7 @@
 		5422B8AD2902DF910073A599 /* ITunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
 		5422B8AF2902E4A50073A599 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5422B8B22902E8030073A599 /* ItunesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesResponse.swift; sourceTree = "<group>"; };
+		54235358291CDE4500930000 /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
 		5428E8BE290C355A0020B20F /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		5428E8C0290C46650020B20F /* ReviewHorizontolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHorizontolController.swift; sourceTree = "<group>"; };
 		5428E8C2290C46AD0020B20F /* ReviewHorizontolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHorizontolCell.swift; sourceTree = "<group>"; };
@@ -391,13 +393,6 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		545082102901430900F397A0 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		545470DD290FDD0C00B1CCCD /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +405,7 @@
 		545470DE290FDD1300B1CCCD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				54235358291CDE4500930000 /* BaseTodayCell.swift */,
 				54C78CB1290F11070080A4B8 /* TodayCell.swift */,
 				545470DF290FDD2A00B1CCCD /* TodayTableCell.swift */,
 				54B6BB52291A9C5B0066BD30 /* TodayMultipleCell.swift */,
@@ -519,13 +515,12 @@
 			isa = PBXGroup;
 			children = (
 				54879A9229019263004CBEFC /* App */,
-				5450820929013E1800F397A0 /* Screens */,
 				5422B8B12902E7EC0073A599 /* Models */,
 				54879A9129019252004CBEFC /* Resources */,
+				5450820929013E1800F397A0 /* Screens */,
 				5422B8A62902DD990073A599 /* Services */,
 				54879A93290192CD004CBEFC /* Supports */,
 				542CF84F290177B6000BA643 /* Utilities */,
-				545082102901430900F397A0 /* ViewModels */,
 				54879A94290196E0004CBEFC /* Views */,
 			);
 			path = AppStore;
@@ -884,6 +879,7 @@
 				5422B8A82902DDB90073A599 /* APIMethod.swift in Sources */,
 				5428E8C3290C46AD0020B20F /* ReviewHorizontolCell.swift in Sources */,
 				542CF851290177CA000BA643 /* UIHelper.swift in Sources */,
+				54235359291CDE4500930000 /* BaseTodayCell.swift in Sources */,
 				543757DF290D135F00DF017A /* Review.swift in Sources */,
 				543757E7290D163E00DF017A /* Label.swift in Sources */,
 				541BE6F8290950D200D70EFF /* SocialAPI.swift in Sources */,
@@ -1072,7 +1068,6 @@
 				INFOPLIST_FILE = AppStore/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1103,7 +1098,6 @@
 				INFOPLIST_FILE = AppStore/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

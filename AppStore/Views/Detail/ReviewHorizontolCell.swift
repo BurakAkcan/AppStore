@@ -47,7 +47,7 @@ class ReviewHorizontolCell: UICollectionViewCell {
         titleLabel.text = itemEntry.title.label
         authorLabel.text = itemEntry.author.name.label
         bodyLabel.text = itemEntry.content.label
-       //we reach stackview view elements and index thanks to enumarated method, after that if index greater than rating view element alpha is zero
+        //we reach stackview view elements and index thanks to enumarated method, after that if index greater than rating view element alpha is zero
         for (index, view) in starStackView.arrangedSubviews.enumerated() {
             if let ratingInt = Int(itemEntry.rating.label) {
                 view.alpha = index >= ratingInt ? 0 : 1
@@ -61,12 +61,10 @@ class ReviewHorizontolCell: UICollectionViewCell {
         authorLabel.textAlignment = .right
         let horizontolStackView = HorizontolStackView(arrangedSubViews: [titleLabel, authorLabel], spacing: 8)
         
-       let stackView = VerticalStackView(arrangedSubviews: [
-          horizontolStackView,starStackView, bodyLabel
+        let stackView = VerticalStackView(arrangedSubviews: [
+            horizontolStackView,starStackView, bodyLabel
         ], spacing: 12)
         addSubview(stackView)
         stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 16, bottom: 0, right: 16))
     }
-    
-    
 }

@@ -39,7 +39,7 @@ enum AppsAPI: API {
             return "/api/v2/us/apps/top-free/50/apps.json"
         case .paid:
             return "/api/v2/us/apps/top-paid/50/apps.json"
-       }
+        }
     }
     
     var parameters: [URLQueryItem]? {

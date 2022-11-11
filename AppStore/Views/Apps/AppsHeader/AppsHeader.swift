@@ -15,7 +15,7 @@ class AppsHeader: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
+        
         configure()
     }
     
@@ -28,6 +28,4 @@ class AppsHeader: UICollectionReusableView {
         appsHeaderHoriziontolController.view.fillSuperview()
         
     }
-    
-    
 }

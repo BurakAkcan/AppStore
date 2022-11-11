@@ -28,6 +28,7 @@ extension TodayFullScreenTVC {
         let header = TodayCell()
         if let item = todayItem {
             header.setCell(item: item)
+            header.clipsToBounds = true
         }
         return header
     }

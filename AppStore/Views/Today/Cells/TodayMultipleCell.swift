@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodayMultipleCell: UICollectionViewCell {
+class TodayMultipleCell: BaseTodayCell {
     
     static let identifier = String(describing: TodayMultipleCell.self)
     
@@ -18,11 +18,13 @@ class TodayMultipleCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        multipleAppsController.view.backgroundColor = .red
         layer.cornerRadius = 16
         self.backgroundColor = .white
-        self.clipsToBounds = true
+        // self.clipsToBounds = true
+        
+        self.layer.shadowColor = UIColor.black.cgColor
         configureCell()
+        
     }
     
     required init?(coder: NSCoder) {

@@ -36,9 +36,6 @@ class AppsVC: BaseCollectionViewController {
         
     }
     
-    deinit {
-        print("DEİNİTLİZE ")
-    }
     //1
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsHeader.identifier, for: indexPath) as? AppsHeader else { return UICollectionReusableView() }

@@ -52,7 +52,7 @@ enum ITunesAPI: API {
             return params
         case .look(let id):
             let params = [
-              URLQueryItem(name: "id", value: id)
+                URLQueryItem(name: "id", value: id)
             ]
             return params
         }

@@ -31,5 +31,4 @@ class DetailPreviewCell: UICollectionViewCell {
                                                                                                                           , right: 12))
         horizontolController.view.anchor(top: previewLabel.bottomAnchor , leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,padding: .init(top: 8, left: 0, bottom: 0, right: 0))
     }
-    
 }

@@ -12,7 +12,7 @@ final class BaseTabbarController: UITabBarController {
     private let homeNav = UINavigationController(rootViewController: TodayVC())
     private let appsNav = UINavigationController(rootViewController: AppsVC())
     private let searchNav = UINavigationController(rootViewController: SearchVC())
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -21,16 +21,13 @@ final class BaseTabbarController: UITabBarController {
     
     private func setTabbars() {
         viewControllers = [
-          createNavController(viewController: TodayVC(), imageName: "house", tabbarTitle: "Today"),
-          createNavController(viewController: AppsVC(), imageName: "square.stack.3d.up.fill", tabbarTitle: "Apps"),
-          createNavController(viewController: SearchVC(), imageName: "magnifyingglass", tabbarTitle: "Search"),
+            createNavController(viewController: TodayVC(), imageName: "house", tabbarTitle: "Today"),
+            createNavController(viewController: AppsVC(), imageName: "square.stack.3d.up.fill", tabbarTitle: "Apps"),
+            createNavController(viewController: SearchVC(), imageName: "magnifyingglass", tabbarTitle: "Search"),
         ]
-        
-        //UICollectionViewController(collectionViewLayout: )
         
         tabBar.tintColor = .label
         tabBar.backgroundColor = .systemGray5
-        
     }
     
     fileprivate func createNavController(viewController: UIViewController, imageName: String, tabbarTitle: String ) -> UIViewController {
@@ -39,8 +36,7 @@ final class BaseTabbarController: UITabBarController {
         navController.tabBarItem.title = tabbarTitle
         return navController
     }
-    
-  }
+}
 
 
 

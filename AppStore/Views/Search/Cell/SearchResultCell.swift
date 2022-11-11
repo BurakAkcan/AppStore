@@ -10,10 +10,9 @@ import UIKit
 final class SearchResultCell: UICollectionViewCell {
     
     static let identifier = "SearchResultCell"
-
+    
     private let  iconImageView: UIImageView = {
-       let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        let imageView = UIImageView()
         imageView.widthAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
         imageView.layer.cornerRadius = 12
@@ -22,20 +21,20 @@ final class SearchResultCell: UICollectionViewCell {
     }()
     
     private let   nameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Test label"
         label.minimumScaleFactor = 0.2
         return label
     }()
     
     private let   categoryLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Category"
         return label
     }()
     
     private let   ratingsLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "9.2 M "
         return label
     }()
@@ -51,10 +50,10 @@ final class SearchResultCell: UICollectionViewCell {
         return button
     }()
     
-   private lazy var screenShotImage1 = createScreenShotImageView()
-   private  lazy var screenShotImage2 = createScreenShotImageView()
-   private lazy var screenShotImage3 = createScreenShotImageView()
-   private lazy var screenList = [screenShotImage1,screenShotImage2,screenShotImage3]
+    private lazy var screenShotImage1 = createScreenShotImageView()
+    private  lazy var screenShotImage2 = createScreenShotImageView()
+    private lazy var screenShotImage3 = createScreenShotImageView()
+    private lazy var screenList = [screenShotImage1,screenShotImage2,screenShotImage3]
     
     func createScreenShotImageView() -> UIImageView {
         let imageView = UIImageView()
@@ -67,7 +66,7 @@ final class SearchResultCell: UICollectionViewCell {
         return imageView
     }
     
-         
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,11 +81,9 @@ final class SearchResultCell: UICollectionViewCell {
         nameLabel.text = item.trackName
         categoryLabel.text = item.primaryGenreName
         ratingsLabel.text = String(format: "%.2f", item.averageUserRating ?? "")
-       // iconImageView.loadFromURL(urlString: item.artworkUrl100)
-      //  screenShotImage1.loadFromURL(urlString: item.screenshotUrls[0])
+    
         let url = URL(string: item.artworkUrl100)!
         iconImageView.sd_setImage(with: url)
-        
         
         if item.screenshotUrls.count >= 3 {
             screenShotImage1.sd_setImage(with: URL(string: item.screenshotUrls[0]))
@@ -105,23 +102,18 @@ final class SearchResultCell: UICollectionViewCell {
                 view.image = UIImage(systemName: "photo")
             }
         }
-        
-        
     }
     
     private func configureCell () {
-       let labelsComponents: [UIView] = [nameLabel, categoryLabel , ratingsLabel]
-       let labelsStackView = VerticalStackView(arrangedSubviews: labelsComponents)
+        let labelsComponents: [UIView] = [nameLabel, categoryLabel , ratingsLabel]
+        let labelsStackView = VerticalStackView(arrangedSubviews: labelsComponents)
         let components: [UIView] = [iconImageView,labelsStackView ,getButton]
-       let infoTopStackView = HorizontolStackView(arrangedSubViews: components, spacing: 12)
+        let infoTopStackView = HorizontolStackView(arrangedSubViews: components, spacing: 12)
         infoTopStackView.alignment = .center
         let screenShotStackView = HorizontolStackView(arrangedSubViews: [screenShotImage1,screenShotImage2,screenShotImage3], spacing: 8)
         screenShotStackView.distribution = .fillEqually
         let overalstackView = VerticalStackView(arrangedSubviews: [infoTopStackView,screenShotStackView], spacing: 12)
         contentView.addSubview(overalstackView)
         overalstackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
-
     }
-    
-    
 }

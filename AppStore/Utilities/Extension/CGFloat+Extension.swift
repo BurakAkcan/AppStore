@@ -7,9 +7,10 @@
 
 import UIKit
 
-//extensionlarda norma değişken tanımlayamayız , ya computed property koyarız ya da static tanımlarız
+//extensionlarda normalde değişken tanımlayamayız , ya computed property koyarız ya da static tanımlarız
 extension CGFloat {
     static let dWidth = UIScreen.main.bounds.width
     static let dheight = UIScreen.main.bounds.height
+   
 }
 

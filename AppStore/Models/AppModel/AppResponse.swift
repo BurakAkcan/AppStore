@@ -10,5 +10,4 @@ import Foundation
 
 public struct AppResponse: Codable {
     let feed: FeedResponse
-    
 }

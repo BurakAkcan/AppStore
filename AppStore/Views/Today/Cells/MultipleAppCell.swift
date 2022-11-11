@@ -15,12 +15,12 @@ class MultipleAppCell: UICollectionViewCell {
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
-         imageView.widthAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
-         imageView.heightAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
-         imageView.layer.cornerRadius = 12
-         imageView.clipsToBounds = true
-         return imageView
-     }()
+        imageView.widthAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
+        imageView.layer.cornerRadius = 12
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
     private let nameLabel: UILabel = UILabel(text: "App name", font: .systemFont(ofSize: 16, weight: .medium))
     private let companyLabel: UILabel = UILabel(text: "company name", font: .systemFont(ofSize: 8, weight: .light))
@@ -36,7 +36,7 @@ class MultipleAppCell: UICollectionViewCell {
     }()
     
     private let seperatorView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
         return view
     }()
@@ -70,5 +70,4 @@ class MultipleAppCell: UICollectionViewCell {
         companyLabel.text = item.artistName
         iconImageView.sd_setImage(with: URL(string: item.artworkUrl100))
     }
-    
 }

@@ -42,7 +42,7 @@ extension AppsHeaderHoriziontolController: UICollectionViewDelegateFlowLayout {
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-         .init(top: 0, left: 8, bottom: 0, right: 8)
+        .init(top: 0, left: 8, bottom: 0, right: 8)
     }
 }
 

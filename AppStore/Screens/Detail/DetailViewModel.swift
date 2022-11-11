@@ -44,9 +44,7 @@ class DetailViewModel: DetailViewModelInterface {
     }
     
     func fetcDetailData() {
-        guard let appId = appId else {
-            return
-        }
+        guard let appId = appId else { return }
         NetworkManager.request(endpoint: ITunesAPI.look(id: appId)) {  [weak self] (result: Result<ItunesResponse, Error>) in
             guard let self = self else { return }
             switch result {
@@ -57,14 +55,11 @@ class DetailViewModel: DetailViewModelInterface {
                 print(error.localizedDescription)
             }
             self.delegate?.stopActivity()
-
         }
     }
     
     func getReview() {
-        guard let appId = appId else {
-            return
-        }
+        guard let appId = appId else { return }
         
         NetworkManager.request(endpoint: ReviewAPI.review(id: appId)) {  [weak self] (result: Result<Review, Error>) in
             guard let self = self else { return }
@@ -76,7 +71,5 @@ class DetailViewModel: DetailViewModelInterface {
                 print(error.localizedDescription)
             }
         }
-
     }
-    
 }

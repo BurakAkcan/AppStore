@@ -12,10 +12,8 @@ enum UIHelper {
         let width = CGFloat.dWidth
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
-    
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: width, height: width / 1.5)
-        
         return layout
     }
 }

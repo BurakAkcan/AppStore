@@ -14,7 +14,6 @@ class TodayTableCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         
-      //  let attributedText = NSMutableAttributedString(string: "Great games", attributes: [.foregroundColor: UIColor.black])
         let attributedText = NSMutableAttributedString(string: "Great games", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Arial", size: 18)!])
         
         attributedText.append(NSAttributedString(string: " are all about the details, from subtle visual effects to imaginative art styles. In these titles, you're sure to find something to marvel at, whether you're into fantasy worlds or neon-soaked dartboards.", attributes: [.foregroundColor: UIColor.gray]))
@@ -32,7 +31,7 @@ class TodayTableCell: UITableViewCell {
         label.numberOfLines = 0
         
         return label
-    }() 
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

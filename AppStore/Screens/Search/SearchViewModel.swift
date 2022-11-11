@@ -37,7 +37,7 @@ final class SearchViewModel: SearchViewModelInterface {
     }
     
     
-   private func getApps() {
+    private func getApps() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
             NetworkManager.request(endpoint: ITunesAPI.iTune(term: self.term ?? "")) { [weak self] (result: Result<ItunesResponse, Error>) in
@@ -46,10 +46,9 @@ final class SearchViewModel: SearchViewModelInterface {
                 case .success(let data):
                     self.appResults = data.results
                     self.delegate?.reloadCollectionView()
-                  //  print(data.results.first?.trackId)
                 case .failure(let error):
                     self.appResults = []
-                    print("HATA VAR \(error.localizedDescription)")
+                    print("Have an error \(error.localizedDescription)")
                 }
             }
         }

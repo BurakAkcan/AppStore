@@ -70,9 +70,8 @@ extension AppsViewModel {
             switch result {
             case .success(let freeGroup):
                 self.appGroup1 = freeGroup
-                print("ÜCRETSİZ app")
             case .failure(let error):
-                print("HATA VAR \(error.localizedDescription)")
+                print("Have an error \(error.localizedDescription)")
             }
         }
         
@@ -81,9 +80,8 @@ extension AppsViewModel {
             dispatchGroup.leave()
             guard let self = self else { return }
             switch result {
-            case .success(let paidGroup):    
+            case .success(let paidGroup):
                 self.appGroup2 = paidGroup
-                print("ÜCRETLİ app")
             case .failure(let error):
                 print(error.localizedDescription)
             }

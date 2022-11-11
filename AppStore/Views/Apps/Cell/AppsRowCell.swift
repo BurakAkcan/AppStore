@@ -10,17 +10,16 @@ import SDWebImage
 
 class AppsRowCell: UICollectionViewCell {
     
-   static let identifier = String(describing: AppsRowCell.self )
+    static let identifier = String(describing: AppsRowCell.self )
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
-         imageView.backgroundColor = .blue
-         imageView.widthAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
-         imageView.heightAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
-         imageView.layer.cornerRadius = 12
-         imageView.clipsToBounds = true
-         return imageView
-     }()
+        imageView.widthAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: .dWidth*0.15).isActive = true
+        imageView.layer.cornerRadius = 12
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
     private let nameLabel: UILabel = UILabel(text: "App name", font: .systemFont(ofSize: 16, weight: .medium))
     private let companyLabel: UILabel = UILabel(text: "company name", font: .systemFont(ofSize: 8, weight: .light))
@@ -39,7 +38,7 @@ class AppsRowCell: UICollectionViewCell {
         super.init(frame: .zero)
         
         configureCell()
-    } 
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

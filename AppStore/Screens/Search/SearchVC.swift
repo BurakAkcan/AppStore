@@ -18,11 +18,11 @@ class SearchVC: BaseCollectionViewController {
     private let searchViewModel = SearchViewModel()
     
     fileprivate let searchController = UISearchController(searchResultsController: nil)
-
+    
     //MARK: - Views
     
     private let enterSearchLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Please enter search term above..."
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .systemGray2
@@ -48,9 +48,6 @@ class SearchVC: BaseCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         enterSearchLabel.isHidden = searchViewModel.appResults.count != 0
         return searchViewModel.appResults.count
-    }
-    deinit {
-        print("deinit")
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
