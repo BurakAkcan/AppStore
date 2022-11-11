@@ -3,7 +3,7 @@
 ## ✍️ About
 
 In this repository, I benefited from the app store training content of lets build that app. 
-MVC design pattern was used in this project, I reprogrammed it with MVVM design pattern.
+MVC design pattern was used the project, I reprogrammed it with protocol oriented MVVM design pattern.
 I completely changed the network layer and reprogrammed it with the moya tactic.
 
 ## 👨🏻‍💻 What Techniques I used
