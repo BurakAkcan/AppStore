@@ -27,5 +27,5 @@ I completely changed the network layer and reprogrammed it with the moya tactic.
  
 ## Image
 
-![lbt](https://user-images.githubusercontent.com/106486885/201337038-906d7685-dc96-49ef-9aad-c9be04c42526.jpeg)
+![AppStore](https://user-images.githubusercontent.com/106486885/201339369-455eecdc-0644-4e82-9716-69dddd8d5c45.png)
 
